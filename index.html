@@ -2,11 +2,28 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <!-- css 영역 -->
         <style type="text/css">
             body {
                 font-size: 0.8em;
                 font-family: dotum;
                 line-height: 1.6em;
+            }
+            body.black {
+                background-color: black;
+                color: white;
+            }
+            body.black a {
+                color: white;
+            }
+            body.black a:hover {
+                color: #f60;
+            }
+            body.black header {
+                border-bottom: 1px solid #333;
+            }
+            body.black nav {
+                border-right: 1px solid #333;
             }
             header {
                 border-bottom: 1px solid #ccc;
@@ -30,6 +47,9 @@
             article {
                 float: left;
             }
+            footer {
+                clear: both;
+            }
             a {
                 text-decoration: none;
             }
@@ -45,14 +65,23 @@
         </style>
     </head>
  
-    <body>
+    <body id="body">
         <div>
             <header>
                 <h1>JavaScript</h1>
             </header>
             <div id="toolbar">
-                <input type="button" value="black" />
-                <input type="button" value="white" />
+            <!-- javascript 
+1.사용자가 버튼을 클릭
+2.브라우저는 사용자가 버튼을 클릭했다는 것을 감지하고 ,이 버튼에 onclick 속성 값이 있는지 확인
+3.onclick 속성의 값이 있으면 이것을 자바스크립트 코드로 해석. 아래는 자바스크립트에 대한 해설
+4.document.getElementById('body') : id 값이 body인 엘리먼트를 찾아주는 명령
+5..className  =  'black' : 4번에서 찾은 엘리먼트의 class 속성 값으로 black를 지정하는 명령
+6.id 값이 body인 엘리먼트의 class 속성 값을 black로 변경
+7.body의 class 값이 black로 변경된 것을 감지한 브라우저는 body.black 선택자에 해당되는 효과들로 웹페이지의 디자인을 변경
+**white 버튼을 눌렀을 때 원래의 색상으로 돌아가는 것은 클래스 네임이 black을 white로 교체했기 때문이다. 그런데 white 클래스에서의 디자인이 CSS 상에서 기술되어 있지 않기 때문에 기본 디자인으로 돌아간 것이다. -->
+                <input type="button" value="black" onclick="document.getElementById('body').className='black'" />
+                <input type="button" value="white" onclick="document.getElementById('body').className='white'" />
             </div>
             <nav>
                 <ul>
